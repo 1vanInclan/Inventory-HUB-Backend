@@ -1,16 +1,21 @@
+import dotenv from 'dotenv'
+dotenv.config()
+
 import express from 'express'
 import cors from 'cors'
 
 import { createTransactionsRouter } from './src/routes/transactions.ts'
 import { createStatsRouter } from './src/routes/stats.ts'
 import { createProductsRouter } from './src/routes/products.ts'
-
+import { connectDB } from './src/config/db.ts'
 
 const app = express()
 const port = process.env.PORT || 3000
 
 app.use(express.json())
 app.use(cors())
+
+connectDB();
 
 
 app.use('/transactions', createTransactionsRouter())

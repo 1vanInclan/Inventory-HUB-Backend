@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon --exec ts-node server.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "ts-node src/scripts/seed.ts"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +15,9 @@
   "packageManager": "pnpm@10.29.1",
   "dependencies": {
     "cors": "2.8.6",
+    "dotenv": "^17.3.1",
     "express": "5.2.1",
+    "mongoose": "^9.2.2",
     "ts-node": "10.9.2",
     "typescript": "5.9.3"
   },
