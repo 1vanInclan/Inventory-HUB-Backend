@@ -1,0 +1,7 @@
+[
+  { "id": 101, "name": "Laptop Pro", "price": 20000, "stock": 10, "categoryId": 1 },
+  { "id": 102, "name": "Mouse Inalámbrico", "price": 500, "stock": 3, "categoryId": 1 },
+  { "id": 103, "name": "Cafetera Express", "price": 1200, "stock": 15, "categoryId": 2 },
+  { "id": 104, "name": "Set de Plumas", "price": 100, "stock": 2, "categoryId": 3 },
+  { "id": 105, "name": "Monitor 4K", "price": 8000, "stock": 0, "categoryId": 1 }
+]
