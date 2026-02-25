@@ -19,5 +19,5 @@ export const validateTransaction = (req: Request, res: Response, next: NextFunct
         });
     }
 
-    next(); 
+    next();
 };

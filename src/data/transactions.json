@@ -1,1 +1,7 @@
-[]
+[
+  {
+    "productId": 101,
+    "type": "OUT",
+    "quantity": 2
+  }
+]

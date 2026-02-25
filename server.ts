@@ -17,7 +17,6 @@ app.use(cors())
 
 connectDB();
 
-
 app.use('/transactions', createTransactionsRouter())
 app.use('/stats', createStatsRouter())
 app.use('/products', createProductsRouter())

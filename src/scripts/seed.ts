@@ -1,5 +1,12 @@
-import { productModel } from "../models/Products.ts";
-import productsData from '../data/products.json' with {type: 'json'}
+import { productModel } from "../schemas/Products.ts";
+import { categorieModel } from "../schemas/Categories.ts"
+import { transactionModel } from "../schemas/Transaction.ts";
+
+import productsData from '../data/products.json' with { type: 'json'}
+import categoriesData  from '../data/categories.json' with { type: 'json' }
+import transactionsData  from '../data/transactions.json' with { type: 'json' }
+
+
 import { connectDB } from "../config/db.ts";
 import mongoose from "mongoose";
 import dotenv from 'dotenv'
@@ -11,9 +18,13 @@ const seedDatabase = async () => {
     await connectDB();
 
     await productModel.deleteMany({});
-    console.log('🗑️ Colección de productos limpia');
+    await categorieModel.deleteMany({});
+    await transactionModel.deleteMany({});
+    console.log('🗑️ Colección de productos, categorias y transacciones limpia');
 
     await productModel.insertMany(productsData);
+    await categorieModel.insertMany(categoriesData);
+    await transactionModel.insertMany(transactionsData);
     console.log('🚀 ¡Datos migrados a MongoDB con éxito!');
 
     await mongoose.connection.close();
