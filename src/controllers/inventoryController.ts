@@ -1,5 +1,6 @@
 import type { Request, Response } from 'express'
-import { InventoryModel } from '../models/localFileSystem/inventory.ts'
+// import { InventoryModel } from '../models/localFileSystem/inventory.ts'
+import { InventoryModel } from '../models/mongoDB/inventory.ts';
 
 class InventoryController {
 
@@ -40,7 +41,7 @@ class InventoryController {
   getTransactionsById = async (req: Request, res: Response) => {
     const { productId } = req.params
     try {
-      const results = await this.inventoryModel.getTransactionById(Number(productId))
+      const results = await this.inventoryModel.getTransactionsById(Number(productId))
       res.status(200).json(results)
     } catch (e) {
       res.status(400).json({
