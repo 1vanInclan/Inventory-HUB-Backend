@@ -24,7 +24,6 @@ class InventoryController {
     }  
   }
   
-
   getInventoryValue = async (req: Request, res: Response) => {
 
     try {
