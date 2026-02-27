@@ -1,6 +1,8 @@
 import type { Request, Response } from "express";
 // import { UserModel } from "../models/localFileSystem/user.ts";
 import { UserModel } from "../models/mongoDB/user.ts";
+import { loginValidation, userValidation } from "../validators/userValidations.ts";
+import z from "zod";
 
 
 export class UserController {
@@ -13,25 +15,50 @@ export class UserController {
 
   register = async (req: Request, res: Response) => {
 
-    const { username, email, password, role } = req.body
+    // const { username, email, password, role } = req.body
 
     try {
-      const result = await this.usersModel.register( username, email, password, role )
+
+      const validateData = userValidation.parse(req.body)
+
+      const result = await this.usersModel.register( validateData.username, validateData.email, validateData.password, validateData.role )
+
       res.status(201).json(result)
-    } catch (e: any) {
-      res.status(400).json({message: e.message})
+
+    } catch (e) {
+      if( e instanceof z.ZodError ){
+        return res.status(400).json({
+          message: 'Datos Invalidos',
+          errors: e.flatten().fieldErrors
+        })
+      }
+      const errorMessage = e instanceof Error ? e.message : 'Error desconocido';
+      res.status(500).json({ message: errorMessage });
     }
 
   }
 
   login = async (req: Request, res: Response) => {
-    const { username, password } = req.body
+    // const { username, password } = req.body
     
     try {
-      const result = await this.usersModel.login( username, password )
+
+      const validateData = loginValidation.parse(req.body)
+      console.log(validateData);
+
+      const result = await this.usersModel.login( validateData.username, validateData.password )
+
       res.status(200).json(result)
+
     } catch (e: any) {
-      res.status(400).json({ message: e.message })
+      
+      if (e instanceof z.ZodError) {
+      return res.status(400).json({
+        message: "Credenciales invalidas",
+      });
+      }
+
+      res.status(401).json({ message: e.message })
     }
   }
 

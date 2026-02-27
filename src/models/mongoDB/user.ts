@@ -35,7 +35,7 @@ export class UserModel {
     const user = await userModel.findOne({ username }).lean();
     
     if (!user || !(await bcrypt.compare(password, user.password))) {
-        throw new Error('Credenciales inválidas'); // Mensaje genérico por seguridad
+        throw new Error('Credenciales inválidas'); 
     }
     
     const token = jwt.sign(
