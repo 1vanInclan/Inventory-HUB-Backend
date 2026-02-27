@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "username": "ivanIA",
+    "email": "ivania@gmail.com",
+    "password": "$2b$10$MMwjH/UjkDwQwLvUklb0auBQyUnQdlP2MmMQ5ouLU9KCeyzfi8kVK",
+    "role": "admin"
+  }
+]

@@ -1,5 +1,9 @@
 import type { User } from "../../interfaces/user.interface";
 import usersData from '../../data/users.json' with { type: 'json'}
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+
+const JWT_SECRET = process.env.JWT_SECRET || 'lameramerasabortaquera'
 
 const users : User[] = usersData
 
@@ -14,14 +18,13 @@ export class UserModel {
     const validateUser = users.findIndex( user => user.username === username )
 
     if(!validateUser) throw new Error('El username ya existe')
-    
-    const id = users.length
+
+    const hashedPassword = await bcrypt.hash(password, 10)
 
     const newUser = {
-      id: id + 1,
       username: username,
       email: email,
-      password: password,
+      password: hashedPassword,
       role: role
     }
 
@@ -37,11 +40,20 @@ export class UserModel {
       throw new Error("El usuario no existe");
     }
 
-    if (users[validateUser].password !== password) {
+    const isMatch = await bcrypt.compare(password, users[validateUser].password)
+    console.log(isMatch);
+
+    if (!isMatch) {
       throw new Error("Contraseña incorrecta");
     }
 
-    return { message: "Loggeado con éxito", user: users[validateUser] };
+    const token = jwt.sign(
+      { id: users[validateUser].username, role: users[validateUser].role},
+      JWT_SECRET,
+      { expiresIn: '2h' }
+    )
+
+    return { message: "Loggeado con éxito", token };
   }
 
 

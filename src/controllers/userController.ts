@@ -1,5 +1,6 @@
 import type { Request, Response } from "express";
-import { UserModel } from "../models/localFileSystem/user.ts";
+// import { UserModel } from "../models/localFileSystem/user.ts";
+import { UserModel } from "../models/mongoDB/user.ts";
 
 
 export class UserController {
