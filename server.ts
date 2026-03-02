@@ -19,11 +19,10 @@ app.use(cors())
 connectDB();
 
 app.use('/auth', createAuthRouter())
-
+ 
 app.use('/transactions', createTransactionsRouter())
 app.use('/stats', createStatsRouter())
 app.use('/products', createProductsRouter())
-
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
