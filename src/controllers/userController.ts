@@ -15,11 +15,11 @@ export class UserController {
 
   register = async (req: Request, res: Response) => {
 
-    // const { username, email, password, role } = req.body
+    const { username, email, password, role } = req.body
 
     try {
 
-      const validateData = userValidation.parse(req.body)
+      const validateData = userValidation.parse({username, email, password, role})
 
       const result = await this.usersModel.register( validateData.username, validateData.email, validateData.password, validateData.role )
 
@@ -39,12 +39,11 @@ export class UserController {
   }
 
   login = async (req: Request, res: Response) => {
-    // const { username, password } = req.body
+    const { username, password } = req.body
     
     try {
 
-      const validateData = loginValidation.parse(req.body)
-      console.log(validateData);
+      const validateData = loginValidation.parse({ username, password})
 
       const result = await this.usersModel.login( validateData.username, validateData.password )
 

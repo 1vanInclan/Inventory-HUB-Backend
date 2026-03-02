@@ -4,7 +4,7 @@ import dns from 'node:dns'
 export const connectDB = async () => {
 
   let isConnected = false;
-  //Node was defaulting to localhos
+  //Node was defaulting to localhost
   dns.setServers(["8.8.8.8", "1.1.1.1"])
   console.log(`Tu uri es: ${process.env.MONGO_URI}`);
 

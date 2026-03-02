@@ -9,6 +9,7 @@ export const userValidation = z.object({
   password: z.string()
     .min(5, "La contraseña debe tener al menos 5 caracteres"),
   role: z.enum([ 'admin', 'user']).default('admin')
+  
 });
 
 export const loginValidation = userValidation.pick({

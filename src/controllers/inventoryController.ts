@@ -1,6 +1,7 @@
 import type { Request, Response } from 'express'
 // import { InventoryModel } from '../models/localFileSystem/inventory.ts'
 import { InventoryModel } from '../models/mongoDB/inventory.ts';
+import { transactionValidation } from '../validators/transactionValidations.ts';
 
 class InventoryController {
 
@@ -14,8 +15,13 @@ class InventoryController {
   const { productId, type, quantity } = req.body
 
   try {
+
+    // const validateData = transactionValidation.parse({productId, type, quantity})
+
     const transaction = await this.inventoryModel.addTransaction(productId, type, quantity)
+
     res.json(transaction)
+
   } catch(e) {
     res.status(400).json({
       success: false,
