@@ -1,6 +1,6 @@
 import type { Request, Response, NextFunction } from 'express';
 import productsData from '../data/products.json' with {type: 'json'};
-import { transactionValidation } from '../validators/transactionValidations.ts';
+import { transactionValidation } from '../validators/transactionValidations';
 import {z} from 'zod'
 
 export const validateTransaction = (req: Request, res: Response, next: NextFunction) => {

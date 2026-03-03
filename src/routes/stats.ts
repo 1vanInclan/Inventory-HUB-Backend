@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { inventoryController } from "../controllers/inventoryController.ts";
-import { verifyToken } from "../middlewares/auth.middleware.ts";
+import { inventoryController } from "../controllers/inventoryController";
+import { verifyToken } from "../middlewares/auth.middleware";
 
 export const createStatsRouter = () => {
   const statsRouter = Router()

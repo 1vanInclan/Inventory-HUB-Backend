@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-import type { Product } from "../interfaces/inventory.interface.ts"
+import type { Product } from "../interfaces/inventory.interface"
 
 const productSchema = new Schema<Product>({
   id: {type: Number, required: true, unique: true},

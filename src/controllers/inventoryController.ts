@@ -1,7 +1,6 @@
 import type { Request, Response } from 'express'
-// import { InventoryModel } from '../models/localFileSystem/inventory.ts'
-import { InventoryModel } from '../models/mongoDB/inventory.ts';
-import { transactionValidation } from '../validators/transactionValidations.ts';
+// import { InventoryModel } from '../models/localFileSystem/inventory'
+import { InventoryModel } from '../models/mongoDB/inventory';
 
 class InventoryController {
 

@@ -1,5 +1,5 @@
 import { model, Schema } from "mongoose";
-import type { Transaction } from '../interfaces/inventory.interface.ts'
+import type { Transaction } from '../interfaces/inventory.interface'
 
 const transactionsSchema = new Schema<Transaction>({
   productId: {type: Number, required: true, ref: 'Product'},

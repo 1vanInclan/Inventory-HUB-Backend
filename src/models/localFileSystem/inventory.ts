@@ -2,7 +2,7 @@ import productsData from '../../data/products.json' with {type: 'json'}
 import categoriesData from '../../data/categories.json' with {type: 'json'}
 import transactionsData from '../../data/transactions.json' with {type: 'json'}
 
-import type { Product, Categorie, Transaction } from '../../interfaces/inventory.interface.ts'
+import type { Product, Categorie, Transaction } from '../../interfaces/inventory.interface'
 
 
   const products: Product[] = productsData

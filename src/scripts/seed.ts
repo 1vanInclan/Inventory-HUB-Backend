@@ -1,7 +1,7 @@
-import { productModel } from "../schemas/Products.ts";
-import { categorieModel } from "../schemas/Categories.ts"
-import { transactionModel } from "../schemas/Transaction.ts";
-import { userModel } from "../schemas/Users.ts";
+import { productModel } from "../schemas/Products";
+import { categorieModel } from "../schemas/Categories"
+import { transactionModel } from "../schemas/Transaction";
+import { userModel } from "../schemas/Users";
 
 import productsData from '../data/products.json' with { type: 'json'}
 import categoriesData  from '../data/categories.json' with { type: 'json' }
@@ -9,7 +9,7 @@ import transactionsData  from '../data/transactions.json' with { type: 'json' }
 import usersData from '../data/users.json' with { type: 'json'}
 
 
-import { connectDB } from "../config/db.ts";
+import { connectDB } from "../config/db";
 import mongoose from "mongoose";
 import dotenv from 'dotenv'
 

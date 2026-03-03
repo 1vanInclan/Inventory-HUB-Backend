@@ -7,11 +7,11 @@ import cors from 'cors'
 import swaggerUi from 'swagger-ui-express';
 import swaggerJsdoc from 'swagger-jsdoc';
 
-import { createTransactionsRouter } from './src/routes/transactions.ts'
-import { createStatsRouter } from './src/routes/stats.ts'
-import { createProductsRouter } from './src/routes/products.ts'
-import { connectDB } from './src/config/db.ts'
-import { createAuthRouter } from './src/routes/auth.ts'
+import { createTransactionsRouter } from './src/routes/transactions'
+import { createStatsRouter } from './src/routes/stats'
+import { createProductsRouter } from './src/routes/products'
+import { connectDB } from './src/config/db'
+import { createAuthRouter } from './src/routes/auth'
 
 const app = express()
 const port = process.env.PORT || 3000
