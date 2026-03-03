@@ -4,7 +4,7 @@ import { UserController } from "../controllers/userController";
 
 const userController = new UserController()
 
-export const createAuthRouter = () => {
+export const createAuthRouter = (): Router => {
 
 
   const authRouter = Router()

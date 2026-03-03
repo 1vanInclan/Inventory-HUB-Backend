@@ -1,5 +1,5 @@
-import { productModel } from "../../schemas/Products.ts";
-import { transactionModel } from "../../schemas/Transaction.ts";
+import { productModel } from "../../schemas/Products";
+import { transactionModel } from "../../schemas/Transaction";
 
 export class InventoryModel {
   

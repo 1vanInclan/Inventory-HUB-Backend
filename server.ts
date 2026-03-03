@@ -44,6 +44,8 @@ const swaggerOptions: swaggerJsdoc.Options = {
   apis: ['./server.ts', './src/routes/*.ts'], 
 };
 
+console.log('ya entre');
+
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));

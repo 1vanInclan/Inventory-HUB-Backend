@@ -1,7 +1,7 @@
 import type { Request, Response } from "express";
 // import { UserModel } from "../models/localFileSystem/user.ts";
-import { UserModel } from "../models/mongoDB/user.ts";
-import { loginValidation, userValidation } from "../validators/userValidations.ts";
+import { UserModel } from "../models/mongoDB/user";
+import { loginValidation, userValidation } from "../validators/userValidations";
 import z from "zod";
 
 

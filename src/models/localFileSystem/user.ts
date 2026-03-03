@@ -34,13 +34,13 @@ export class UserModel {
 
   async login (username: string, password: string) {
 
-    const validateUser = users.findIndex( user => user.username === username )
+    const user = users.find(u => u.username === username);
 
-    if (validateUser === -1) {
+    if (!user) {
       throw new Error("El usuario no existe");
     }
 
-    const isMatch = await bcrypt.compare(password, users[validateUser].password)
+    const isMatch = await bcrypt.compare(password, user.password)
     console.log(isMatch);
 
     if (!isMatch) {
@@ -48,7 +48,7 @@ export class UserModel {
     }
 
     const token = jwt.sign(
-      { id: users[validateUser].username, role: users[validateUser].role},
+      { id: user.username, role: user.role},
       JWT_SECRET,
       { expiresIn: '2h' }
     )

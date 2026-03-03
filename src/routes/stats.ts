@@ -2,7 +2,7 @@ import { Router } from "express";
 import { inventoryController } from "../controllers/inventoryController";
 import { verifyToken } from "../middlewares/auth.middleware";
 
-export const createStatsRouter = () => {
+export const createStatsRouter = (): Router => {
   const statsRouter = Router()
 
   statsRouter.use(verifyToken)

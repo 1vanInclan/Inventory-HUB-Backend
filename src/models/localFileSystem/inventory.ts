@@ -19,15 +19,21 @@ export class InventoryModel {
       quantity: Number(quantity)
     }
 
-    const indexProduct = products.findIndex( product => product.id === Number(productId) )
+    const indexProduct:number = products.findIndex( product => product.id === Number(productId) )
+
+    const product = products[indexProduct]
+
+    if(!product){
+      throw new Error("Product not found");
+    }
 
     if(type === 'IN'){
-      products[indexProduct].stock = products[indexProduct].stock + Number(quantity)
+      product.stock += Number(quantity);
     }
 
     if(type === 'OUT'){
       
-      products[indexProduct].stock = products[indexProduct].stock - Number(quantity)
+      product.stock -= Number(quantity);
     }
 
     transactions.push(transaccion)
