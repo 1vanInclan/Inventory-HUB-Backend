@@ -37,7 +37,7 @@ export class UserModel {
     const user = users.find(u => u.username === username);
 
     if (!user) {
-      throw new Error("El usuario no existe");
+      throw new Error("Credenciales inválidas");
     }
 
     const isMatch = await bcrypt.compare(password, user.password)
@@ -53,7 +53,7 @@ export class UserModel {
       { expiresIn: '2h' }
     )
 
-    return { message: "Loggeado con éxito", token };
+    return { message: "Loggeado con exito", token };
   }
 
 

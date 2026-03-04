@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-// import { UserModel } from "../models/localFileSystem/user.ts";
+// import { UserModel } from "../models/localFileSystem/user";
 import { UserModel } from "../models/mongoDB/user";
 import { loginValidation, userValidation } from "../validators/userValidations";
 import z from "zod";
@@ -53,7 +53,7 @@ export class UserController {
       
       if (e instanceof z.ZodError) {
       return res.status(400).json({
-        message: "Credenciales invalidas",
+        message: "Credenciales inválidas",
       });
       }
 
